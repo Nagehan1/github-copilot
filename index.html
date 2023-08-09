@@ -33,49 +33,24 @@
         </div>
     </div>
 </nav>
-<!--boostrap grid with12 rows and 1 column for small screens and
+<!--boostrap grid with 12 rows and 1 column for small screens and 6 rows
  2 columns for medium screens and each cell contains 
  label of the month from januarry to december and
   2 bootsrap number inputs side by side with labels,
    1 for income and 1 for expenses  -->
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-md-6">
-            <label for="jan">January</label>
-            <div class="input-group mb-3">
-                <span class="input-group-text">$</span>
-                <input type="number" class="form-control" id="jan" aria-label="Amount (to the nearest dollar)">
-                <span class="input-group-text">.00</span>
-            </div>
+            <label class="fw-bold" for="jan">January</label>
+            <input type="number" id="janIncome" name="jan" placeholder="Income">
+            <input type="number" id="janExpenses" name="jan" placeholder="Expenses">
         </div>
         <div class="col-sm-12 col-md-6">
-            <label for="jan">January</label>
-            <div class="input-group mb-3">
-                <span class="input-group-text">$</span>
-                <input type="number" class="form-control" id="jan" aria-label="Amount (to the nearest dollar)">
-                <span class="input-group-text">.00</span>
-            </div>
+            <label class="fw-bold" for="feb">February</label>
+            <input type="number" id="febIncome" name="feb" placeholder="Income">
+            <input type="number" id="febExpenses" name="feb" placeholder="Expenses">
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <label for="feb">February</label>
-            <div class="input-group mb-3">
-                <span class="input-group-text">$</span>
-                <input type="number" class="form-control" id="feb" aria-label="Amount (to the nearest dollar)">
-                <span class="input-group-text">.00</span>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <label for="feb">February</label>
-            <div class="input-group mb-3">
-                <span class="input-group-text">$</span>
-                <input type="number" class="form-control" id="feb" aria-label="Amount (to the nearest dollar)">
-                <span class="input-group-text">.00</span>
-            </div>
-        </div>
-    </div>
-    
-</body>
+
+        
+        </body>
 </html>
-```
