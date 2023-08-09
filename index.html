@@ -1,124 +1,362 @@
-//basic html document//
+<!-- basic html document -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Buck2Bar</title>
-<!-- link to chart js lib-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- link to script.js -->
+    <script src="script.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <!-- link to chart js lib -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<!--link to script.js-->
-<script src="script.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-</head>
-<body>
-  <!--black bootstrap navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Buck2Bar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <title>Bucks2Bar</title>
+  </head>
+  <body>
+    <!-- black bootstrap navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">
+          <!-- fontawesome dollar icon, 30px font size -->
+          <i
+            class="fas fa-dollar-sign text-warning"
+            style="font-size: 30px"
+          ></i>
+          <!-- fontawesome bar chart icon, 30px font size, skyblue -->
+          <i class="fas fa-chart-bar text-primary" style="font-size: 30px"></i>
+          <!-- span with text bucks2bar, 30px font size -->
+          <span style="font-size: 30px">Bucks2Bar</span>
+        </span>
+      </div>
+    </nav>
+
+    <!-- bootstrap tabs, with 2 tabs, first one called Data, second one called Chart -->
+    <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="data-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#data"
+          type="button"
+          role="tab"
+          aria-controls="data"
+          aria-selected="true"
+        >
+          Data
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-        </ul>
-        </div>
-    </div>
-</nav>
-<!--bootsrap tabs, with 2 tabs,first one called Data, second one called Chart -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Data</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Chart</a>
-                </li>
-            </ul>
-            <!--data tab content-->
-            <div class="tab-content">
-                <div class="tab-pane active" id="data">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <h1 class="text-center">Data</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
-        
-        </div>
-    </div>
-
-
-
-
-
-
-<!--boostrap grid with 12 rows and 1 column for small screens and 6 rows
- 2 columns for medium screens and each cell contains 
- label of the month from januarry to december and
-  2 bootsrap number inputs side by side with labels,
-   1 for income and 1 for expenses  -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <label class="fw-bold" for="jan">January</label>
-            <input type="number" id="janIncome" name="jan" placeholder="Income">
-            <input type="number" id="janExpenses" name="jan" placeholder="Expenses">
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <label class="fw-bold" for="feb">February</label>
-            <input type="number" id="febIncome" name="feb" placeholder="Income">
-            <input type="number" id="febExpenses" name="feb" placeholder="Expenses">
-        </div>
-
-        <div class="col-sm-12 col-md-6">
-            <label class="fw-bold" for="mar">March</label>
-            <input type="number" id="marIncome" name="mar" placeholder="Income">
-            <input type="number" id="marExpenses" name="mar" placeholder="Expenses">
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <label class="fw-bold" for="apr">April</label>
-            <input type="number" id="aprIncome" name="apr" placeholder="Income">
-            <input type="number" id="aprExpenses" name="apr" placeholder="Expenses">
-        </div>
- <!--chart tab content-->
- <div class="tab-pane" id="chart">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 class="text-center">Chart</h1>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="chart-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#chart"
+          type="button"
+          role="tab"
+          aria-controls="chart"
+          aria-selected="false"
+        >
+          Chart
+        </button>
+      </li>
+    </ul>
+    <!-- data tab content -->
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="data"
+        role="tabpanel"
+        aria-labelledby="data-tab"
+      >
+        <!-- bootstrap grid with 12 rows and 1 column for small screens, and 6 rows and 2 columns for medium screens and above, 
+      each cell contains label of the month from January to December, 
+      and 2 bootstrap number inputs side by side with labels, 1 for income and 1 for expenses -->
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <label for="january" class="form-label fw-bold">January</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="januaryIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="januaryExpenses"
+                  placeholder="0"
+                />
+              </div>
             </div>
+            <div class="col-sm-12 col-md-6">
+              <label for="february" class="form-label fw-bold">February</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="februaryIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="februaryExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <label for="march" class="form-label fw-bold">March</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="marchIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="marchExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <label for="april" class="form-label fw-bold">April</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="aprilIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="aprilExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <label for="may" class="form-label fw-bold">May</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="mayIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="mayExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <label for="june" class="form-label fw-bold">June</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="juneIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="juneExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <label for="july" class="form-label fw-bold">July</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="julyIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="julyExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <label for="august" class="form-label fw-bold">August</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="augustIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="augustExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <label for="september" class="form-label fw-bold"
+                >September</label
+              >
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="septemberIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="septemberExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <label for="october" class="form-label fw-bold">October</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="octoberIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="octoberExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <label for="november" class="form-label fw-bold">November</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="novemberIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="novemberExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <label for="december" class="form-label fw-bold">December</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Income</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="decemberIncome"
+                  placeholder="0"
+                />
+                <span class="input-group-text">Expenses</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="decemberExpenses"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- chart js  bar chart-->
-<div class="container-fluid"></div>
-    <div class="row">
-        <div class="col-sm-12">
-            <canvas id="myChart" width="400" height="400"></canvas>
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade"
+        id="chart"
+        role="tabpanel"
+        aria-labelledby="data-tab"
+      >
+        <!-- bootstrap button with label "Download" -->
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-sm-12">
+              <a class="btn btn-primary" id="download"> Download </a>
+            </div>
+          </div>
         </div>
+
+        <!-- chart js bar chart -->
+        <div class="container mb-5">
+          <div class="row">
+            <div class="col-sm-12">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-                    </div>
-                </div>
-
-        </body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/c9a033ef5a.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
